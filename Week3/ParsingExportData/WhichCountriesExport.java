@@ -1,3 +1,8 @@
+/**
+ * @ Konstantin Krumin 
+ * @ 1.0.0
+ */
+
 import edu.duke.*;
 import org.apache.commons.csv.*;
 
