@@ -1,7 +1,13 @@
+
 /**
- * @ Konstantin Krumin 
- * @ 1.0.0
- */
+ * WhichCountriesExport class contains several methods that are used to parse through export
+ * information csv files. The following methods are included in this class: countryInfo(),
+ * listExportersTwoProducts(), numberOfExporters(), bigExporters().
+ * 
+ * 
+ * Author: Konstantin Krumin
+ * Version: 1.0
+ **/
 
 import edu.duke.*;
 import org.apache.commons.csv.*;
