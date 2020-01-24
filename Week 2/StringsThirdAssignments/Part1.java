@@ -1,5 +1,14 @@
+
+/**
+ * This class contains multiple methods for parsing through a DNA string and finding genes in it.
+ *
+ * Author: Konstantin Krumin
+ * Version: 1.0
+ **/
+
 import edu.duke.*;
 import java.io.File;
+
 public class Part1 {
      public int findStopCodon(String dna, int startIndex, String stopCodon) {
         int currIndex = dna.indexOf(stopCodon, startIndex);
@@ -14,6 +23,7 @@ public class Part1 {
         }
         return dna.length();
     }
+    
     public String findGene(String dna, int where) {
         int startIndex = dna.indexOf("ATG", where);
         if (startIndex == -1) {
@@ -31,6 +41,7 @@ public class Part1 {
         }
         return dna.substring(startIndex, minIndex + 3);
     }
+    
     public void printAllGenes(String dna) {
         int startIndex = 0;
         while (true) {
@@ -42,6 +53,7 @@ public class Part1 {
             startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }            
     }
+    
     public StorageResource getAllGenes(String dna) {
         StorageResource geneList = new StorageResource();
         int startIndex = 0;
@@ -55,6 +67,7 @@ public class Part1 {
         }
         return geneList;
     }
+    
     public void testOn(String dna) {
         System.out.println("Testing getAllGenes on " + dna);
         StorageResource genes = getAllGenes(dna);
@@ -62,11 +75,13 @@ public class Part1 {
             System.out.println("Gene: " + g);
         }
     }
+    
     public void test() {
         testOn("ATGCCCTAACCCATGCCCCCCTAGCCCATGCCCCCCCCCTGA");
         testOn("");
         testOn("CCATGCCTAACATGCCCTAG");
     }
+    
     public float cgRatio(String dna) {
         int countC = 0;
         int countG = 0;
@@ -102,6 +117,7 @@ public class Part1 {
         
         return finalCGRatio;
     }
+    
     public void testCGRatio() {
         String dna = "ATGCGCGTAA";
         System.out.println("First DNA is " + dna);
@@ -113,6 +129,7 @@ public class Part1 {
         cgRatioValue = cgRatio(dna);
         System.out.println("The ratio of Cs and Gs is " + cgRatioValue);
     }
+    
     public int countCTG(String dna) {
         int count = 0;
         int firstOccurrence = dna.indexOf("CTG");
@@ -130,6 +147,7 @@ public class Part1 {
         }
         return count;
     }
+    
     public void testCountCTG() {
         String dna = "ATGCTGTAA";
         System.out.println("First DNA is " + dna);
@@ -150,6 +168,7 @@ public class Part1 {
         int countCTG2 = countCTG(dna2);
         System.out.println("Number of CTG in the strand " + countCTG2);
     }
+    
     public void processGenes(StorageResource getGene) {
         int count = 0;
         int count2 = 0;
@@ -185,6 +204,7 @@ public class Part1 {
         }
         System.out.println("The longest gene length: " + longestGeneLength);
     }
+    
     public StorageResource theSR() {
         StorageResource sr = new StorageResource();
         StorageResource getGene = new StorageResource();
@@ -204,9 +224,11 @@ public class Part1 {
         }
         return getGene;
     }
+    
     public void testProcessGenes() {
         processGenes(theSR());
     }
+    
     public void processGenes2(StorageResource getGene) {
         int count = 0;
         int count2 = 0;
@@ -249,6 +271,7 @@ public class Part1 {
         }
         System.out.println("The longest gene length: " + longestGeneLength);
     }
+    
     public StorageResource fromFile() {
         FileResource fr = new FileResource("GRch38dnapart.fa");
         String dna = fr.asString();
@@ -266,6 +289,7 @@ public class Part1 {
         }
         return getGene;
     }
+    
     public void testProcessGenesFromFile() {
         processGenes2(fromFile());
     }
