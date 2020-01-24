@@ -1,4 +1,11 @@
 
+/**
+ * Part3 class contains several methods for finding genes in a DNA strand and counting them.
+ * 
+ * Author: Konstantin Krumin
+ * Version: 1.0
+ */
+
 public class Part3 {
     public int findStopCodon(String dna, int startIndex, String stopCodon) {
         int currIndex = dna.indexOf(stopCodon, startIndex);
@@ -13,6 +20,7 @@ public class Part3 {
         }
         return dna.length();
     }
+    
     public String findGene(String dna, int where) {
         int startIndex = dna.indexOf("ATG", where);
         if (startIndex == -1) {
@@ -28,9 +36,9 @@ public class Part3 {
             return "";
         }
         
-        
         return dna.substring(startIndex, minIndex + 3);
     }
+    
     public void printAllGenes(String dna) {
         int startIndex = 0;
         while (true) {
@@ -42,6 +50,7 @@ public class Part3 {
             startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }            
     }
+    
     public void countGenes(String dna) {
         int startIndex = 0;
         while (true) {
@@ -53,6 +62,7 @@ public class Part3 {
             startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }
     }
+    
     public void testCountGenes() {
         String dna = "ATGCCCTAACCCATGCCCCCCTGACC";
         System.out.println("The first DNA strand is:" + dna);

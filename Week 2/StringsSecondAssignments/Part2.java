@@ -1,4 +1,11 @@
 
+/**
+ * howMany method counts occurences of the stringa in the stringb.
+ * 
+ * Author: Konstantin Krumin
+ * Version: 1.0
+ */
+
 public class Part2 {
     public int howMany (String stringa, String stringb) {
         int countOccurrencies = 0;
@@ -16,6 +23,7 @@ public class Part2 {
         }
         return countOccurrencies;
     }
+    
     public void testHowMany() {
         String stringa = "ATG";
         String stringb = "ATTATGGCCATGTAA";
